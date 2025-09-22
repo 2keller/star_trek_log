@@ -73,7 +73,7 @@ def home(request):
     }
     return render(request, 'logs/home.html', context)
 
-@login_required
+
 def view_logs(request):
     logs = LogEntry.objects.filter(user=request.user).order_by('-timestamp')
     
@@ -104,7 +104,7 @@ def view_logs(request):
     }
     return render(request, 'logs/view_logs.html', context)
 
-@login_required
+
 def create_log(request):
     if request.method == 'POST':
         content = request.POST.get('content')
